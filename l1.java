@@ -8,7 +8,7 @@ public class l1
             img[i] = real[i] = 0;
 
         boolean ok = true;
-        for(int i=0;i<args.length && ok;i+=2)
+        for(int i=0;i < args.length && ok;i+=2)
         {
             int len = args[i].length(), j = 0;
             // trecem prin toate caracterele pana gasim un - sau un +
@@ -20,9 +20,12 @@ public class l1
                     break;
                 }
                 
-                real[i] = real[i]*10 + (args[i].charAt(j) - '0');
+                real[i/2] = real[i/2]*10 + (args[i].charAt(j) - '0');
                 j++;
             }
+
+            if(args[i].charAt(j) == '+')
+                j++;
 
             if(!ok)
                 break;
@@ -35,19 +38,21 @@ public class l1
                     break;
                 }
 
-                img[i] = img[i]*10 + (args[i].charAt(j) - '0');
+                img[i/2] = img[i/2]*10 + (args[i].charAt(j) - '0');
                 j++;
             }
+
         }
-
-
+        
         for(int i=1;i<args.length && ok;i+=2)
-            if(args[i] != "+" && args[i] != "-" && args[i] != "*" && args[i] != "/")
+            if(!args[i].equals("+") && !args[i].equals("-") && !args[i].equals("*") && !args[i].equals("/"))
                 {
                     ok = false;
+                    System.out.println(args[i] + i);
                     break;
                 }
         
+        System.out.println(args[0] + args[1] + args[2]);
         if(!ok)
         {
             System.out.println("Stringul oferit la tastatura nu este o operatie aritmetica!!!");
