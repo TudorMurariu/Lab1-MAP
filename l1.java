@@ -65,3 +65,48 @@ public class l1
     }
 
 }
+
+class NumarComplex
+{
+    public double re;
+    public double img;
+
+    NumarComplex(double re,double img)
+    {
+        this.re = re;
+        this.img = img;
+    }
+
+    public void adunare(NumarComplex ot)
+    {
+        this.re += ot.re;
+        this.img += ot.img;
+    }
+
+    public void scadere(NumarComplex ot)
+    {
+        this.re -= ot.re;
+        this.img -= ot.img;
+    }
+
+    public void inmultire(NumarComplex ot)
+    {
+        this.re = this.re*ot.re - this.img*ot.img;
+        this.img = this.re*ot.img + this.img*ot.re;
+    }
+
+    public void impartire(NumarComplex ot)
+    {
+        // ?????????????? how
+    }
+
+    public void conjugat()
+    {
+        this.img = -this.img;
+    }
+}
+
+abstract class ComplexExpression
+{
+
+}
